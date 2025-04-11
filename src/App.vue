@@ -116,8 +116,10 @@
             </v-col>
           </v-row>
 
+          
+
           <!-- Tabela de movimentos -->
-          <h2 class="my-6">Ataques (Moves)</h2>
+          <h2 class="my-6">Moves</h2>
           <v-simple-table>
             <thead>
               <tr>
@@ -136,8 +138,42 @@
             </tbody>
           </v-simple-table>
 
+          <h2 class="my-6 ml-2">Sprites</h2>
+<v-row
+  dense
+  class="d-flex flex-wrap ml-2"
+  style="gap: 16px; justify-content: start"
+>
+  <v-col
+    v-for="(generation, generationName) in selected_pokemon.sprites.versions"
+    :key="generationName"
+    cols="auto"
+    class="d-flex flex-wrap"
+    style="gap: 16px"
+  >
+    <div
+      v-for="(game, gameName) in generation"
+      :key="gameName"
+      class="d-flex flex-column align-center pa-2"
+      style="width: 100px; min-height: 120px; text-align: center; background-color: #f9f7f8; border-radius: 12px"
+    >
+      <v-avatar size="64" tile v-if="game.front_default">
+        <img :src="game.front_default" :alt="gameName" />
+      </v-avatar>
+      <div v-else style="height: 64px; display: flex; align-items: center; justify-content: center">
+        <span style="font-size: 12px; color: gray">No Image</span>
+      </div>
+      <span
+        style="font-size: 12px; margin-top: 8px; color: #333; word-break: break-word"
+      >
+        {{ gameName }}
+      </span>
+    </div>
+  </v-col>
+</v-row>
+
           <!-- Jogos -->
-          <h2 class="my-6 ml-2">Presente nos Jogos</h2>
+          <h2 class="my-6 ml-2">Game Indices </h2>
           <v-row dense class="d-flex flex-wrap ml-2" style="gap: 12px 8px">
             <v-chip
               v-for="entry in selected_pokemon.game_indices"
@@ -146,6 +182,10 @@
               {{ entry.version.name }}
             </v-chip>
           </v-row>
+          
+
+
+          
         </v-container>
       </v-card>
     </v-dialog>
@@ -257,6 +297,7 @@ export default {
     },
   },
 };
+
 </script>
 
 <style lang="scss">

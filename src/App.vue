@@ -1,6 +1,8 @@
 <template>
   <v-app>
     <v-container>
+      
+
       <v-container>
         <v-row dense>
           <!-- Filtros -->
@@ -155,7 +157,7 @@
       v-for="(game, gameName) in generation"
       :key="gameName"
       class="d-flex flex-column align-center pa-2"
-      style="width: 100px; min-height: 120px; text-align: center; background-color: #f9f7f8; border-radius: 12px"
+      style="width: 100px; min-height: 120px; text-align: center; background-color: #dcdcdc; border-radius: 12px"
     >
       <v-avatar size="64" tile v-if="game.front_default">
         <img :src="game.front_default" :alt="gameName" />
@@ -171,6 +173,7 @@
     </div>
   </v-col>
 </v-row>
+
 
           <!-- Jogos -->
           <h2 class="my-6 ml-2">Game Indices </h2>

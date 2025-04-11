@@ -1,5 +1,10 @@
 <template>
   <v-app>
+    <h1 align="center" style="color: white; display: flex; align-items: center; justify-content: center; gap: 10px; margin: 30px 0;">
+  <img src="/pikachu.png" alt="" height="40em" />
+  Pokédex
+</h1>
+
     <v-container>
       
 
